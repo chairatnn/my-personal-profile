@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyProfile</title>
+    <style>
+        /* CSS สำหรับจัดรูปแบบและดีไซน์ */
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #e9ecef;
+            color: #495057;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .profile-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            padding: 2rem;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #adb5bd;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .contact-links a {
+            color: #007bff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            color: #0056b3;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <img id="profile-picture" class="profile-img" src="https://via.placeholder.com/150" alt="รูปโปรไฟล์">
+        <h1 id="profile-name">ชื่อของคุณ</h1>
+        <h2 id="profile-title">ตำแหน่ง/อาชีพ</h2>
+        <p id="profile-bio">
+            เขียนเกี่ยวกับตัวคุณ, ความสนใจ, ประสบการณ์ หรือเป้าหมายในอาชีพ
+            ข้อมูลส่วนนี้จะถูกแสดงผลบนเว็บไซต์โดยใช้ JavaScript
+        </p>
+
+        <div class="contact-links">
+            <a id="email-link" href="#">Email</a>
+            <a id="github-link" href="#">GitHub</a>
+            <a id="linkedin-link" href="#">LinkedIn</a>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript สำหรับจัดการข้อมูล
+        document.addEventListener('DOMContentLoaded', () => {
+            const profileData = {
+                name: "CHAIRAT N.",
+                title: "Web Developer",
+                bio: "I'm a developer who creates impactful digital experiences. With experience in developing responsive websites and skills spanning both frontend and backend, I'm always ready to learn and grow with new technologies.",
+                pictureUrl: "https://img5.pic.in.th/file/secure-sv1/235689-150x150.png",
+                email: "chairatnn@gmail.com",
+                github: "https://github.com/chairatnn",
+                linkedin: "https://www.linkedin.com/in/chairat-nuansamniang-50b78a160"
+            };
+
+            // อัปเดตข้อมูลบนหน้าเว็บ
+            document.getElementById('profile-picture').src = profileData.pictureUrl;
+            document.getElementById('profile-name').textContent = profileData.name;
+            document.getElementById('profile-title').textContent = profileData.title;
+            document.getElementById('profile-bio').textContent = profileData.bio;
+            document.getElementById('email-link').href = `mailto:${profileData.email}`;
+            document.getElementById('github-link').href = profileData.github;
+            document.getElementById('linkedin-link').href = profileData.linkedin;
+        });
+    </script>
+</body>
+</html>
